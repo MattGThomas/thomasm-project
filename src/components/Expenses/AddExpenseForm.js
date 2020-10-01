@@ -19,17 +19,17 @@ class AddExpenseForm extends Component {
   addExpense = (evt) => {
     const { name, type, price } = this.state;
     const payload = { name, type, price };
-
+    console.log("this is state, ", this.state);
     if (type === "") {
       alert("please select a type to continue");
       return;
     } else {
-      Axios.post("http://localhost:3000/expenses", payload)
+      Axios.post("https://thomasm.herokuapp.com/expenses/add", payload)
         .then((response) => {
           this.setState({
             error: null,
           });
-          this.props.updateExpenses(response.data);
+          // this.props.updateExpenses(response.data);
         })
         .catch((err) => {
           console.log("this is err", err);

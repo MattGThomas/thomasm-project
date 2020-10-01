@@ -14,7 +14,7 @@ class App extends Component {
 
   // get request to retrieve the expenses from database
   componentDidMount() {
-    Axios.get("http://localhost:4200/expenses")
+    Axios.get("https://thomasm.herokuapp.com/expenses")
       .then((res) => {
         this.setState({ expenses: res.data.data });
       })
@@ -124,7 +124,7 @@ class App extends Component {
   };
 
   deleteAllExpenses() {
-    Axios.delete("http://localhost:3000/expenses")
+    Axios.delete("https://thomasm.herokuapp.com/expenses")
       .then((res) => {
         window.location.reload(true);
       })

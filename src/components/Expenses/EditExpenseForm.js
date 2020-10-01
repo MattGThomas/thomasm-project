@@ -31,7 +31,8 @@ class EditExpenseForm extends Component {
 
   autofill = () => {
     const { id } = this.state;
-    Axios.get(`http://localhost:3000/expenses/${id}`)
+    // Axios.get(`http://localhost:3000/expenses/${id}`)
+    Axios.get(`https://thomasm.herokuapp.com/expenses/${id}`)
       .then((res) => {
         console.log(res);
         console.log(res.data);
@@ -53,7 +54,7 @@ class EditExpenseForm extends Component {
     const { name, type, price, id } = this.state;
     const payload = { name, type, price, id };
 
-    Axios.put("http://localhost:3000/expenses", payload)
+    Axios.put("https://thomasm.herokuapp.com/expenses/update", payload)
       .then((response) => {
         this.props.updateExpenses(response.data);
       })
@@ -68,7 +69,7 @@ class EditExpenseForm extends Component {
     if (!id) {
       alert("please enter an id");
     } else {
-      Axios.delete(`http://localhost:3000/expenses/${id}`)
+      Axios.delete(`https://thomasm.herokuapp.com/expenses/${id}`)
         .then((res) => {
           window.location.reload(true);
         })
