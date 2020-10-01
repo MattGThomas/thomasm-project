@@ -14,7 +14,7 @@ class App extends Component {
 
   // get request to retrieve the expenses from database
   componentDidMount() {
-    Axios.get("http://localhost:3000/expenses")
+    Axios.get("http://localhost:4200/expenses")
       .then((res) => {
         this.setState({ expenses: res.data.data });
       })
